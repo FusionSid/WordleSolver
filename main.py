@@ -1,5 +1,5 @@
 from datetime import datetime 
-from flask import Flask
+from flask import Flask, render_template
 import json
 
 app = Flask(__name__)
@@ -27,6 +27,6 @@ def get_word():
 def home():
     answer = get_word()
 
-    return f"<h1><center>{answer}</center></h1>"
+    return render_template("index.html", answer=answer)
 
 app.run()
