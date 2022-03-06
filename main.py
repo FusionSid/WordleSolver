@@ -1,6 +1,6 @@
 from datetime import datetime 
 import json
-import sidspackage
+
 date_format = "%d/%m/%y"
 
 start_day = "07/03/22"
