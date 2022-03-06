@@ -1,16 +1,32 @@
 from datetime import datetime 
+from flask import Flask, render_template
 import json
 
-date_format = "%d/%m/%y"
+app = Flask(__name__)
 
-start_day = "07/03/22"
-today = datetime.now().strftime(date_format)
+def get_word():
+    date_format = "%d/%m/%y"
 
-a, b = datetime.strptime(start_day, date_format), datetime.strptime(today, date_format)
+    start_day = "07/03/22"
+    today = datetime.now().strftime(date_format)
 
-delta = b - a
+    a, b = datetime.strptime(start_day, date_format), datetime.strptime(today, date_format)
 
-with open("words.json") as f:
-    data = json.load(f)
+    delta = b - a
 
-print(f"\n\033[94m\033[1m\033[4mTodays Word:\u001b[0m\033[92m\n   {data[delta.days]}\u001b[0m\n")
+    with open("words.json") as f:
+        data = json.load(f)
+
+    answer = data[delta.days]
+    
+    print(f"\n\033[94m\033[1m\033[4mTodays Word:\u001b[0m\033[92m\n   {answer}\u001b[0m\n")
+
+    return answer
+    
+@app.route("/")
+def home():
+    answer = get_word()
+
+    return f"<h1><center>{answer}</center></h1>"
+
+app.run()
