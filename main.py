@@ -1,5 +1,5 @@
 from datetime import datetime 
-from flask import Flask, render_template
+from flask import Flask
 import json
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ def get_word():
     print(f"\n\033[94m\033[1m\033[4mTodays Word:\u001b[0m\033[92m\n   {answer}\u001b[0m\n")
 
     return answer
-    
+
 @app.route("/")
 def home():
     answer = get_word()
