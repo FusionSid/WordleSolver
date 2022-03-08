@@ -13,4 +13,4 @@ In autosolve/autosolve.py It will open chrome, got to the website, click to move
 
 In web/main.py it just shows the word of the day on a basic flask site. Also prints it to terminal.
 
-This bot has worked 2 days in a row for me but maybe i just go lucky so if it doesnt work tommorow ill delete this repo
+
