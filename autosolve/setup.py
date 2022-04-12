@@ -1,7 +1,7 @@
 from setuptools import setup
 
 APP = ['autosolve.py']
-DATA_FILES = ["words.json"]
+DATA_FILES = []
 OPTIONS = {}
 
 setup(
